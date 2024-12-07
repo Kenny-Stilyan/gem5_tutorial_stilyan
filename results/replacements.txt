@@ -1,0 +1,37 @@
+Values from TREEPLRURP:
+new.txt - system.cpu0.dcache.replacements: 1789.0
+new.txt - system.cpu1.dcache.replacements : 1696.0
+new.txt - system.cpu2.dcache.replacements : 1665.0
+new.txt - system.cpu3.dcache.replacements : 1725.0
+new.txt - system.cpu4.dcache.replacements : 1686.0
+new.txt - system.cpu5.dcache.replacements : 1774.0
+new.txt - system.cpu6.dcache.replacements : 1743.0
+new.txt - system.cpu7.dcache.replacements : 1684.0
+new.txt - system.cpu8.dcache.replacements : 1672.0
+new.txt - system.cpu9.dcache.replacements : 1781.0
+new.txt - system.cpu10.dcache.replacements : 1791.0
+new.txt - system.cpu11.dcache.replacements : 1721.0
+new.txt - system.cpu12.dcache.replacements : 1682.0
+new.txt - system.cpu13.dcache.replacements : 1843.0
+new.txt - system.cpu14.dcache.replacements : 1735.0
+new.txt - system.cpu15.dcache.replacements: 1729.0
+
+
+Values from LRURP:
+old.txt - system.cpu0.dcache.replacements: 1710.0
+old.txt - system.cpu1.dcache.replacements : 1711.0
+old.txt - system.cpu2.dcache.replacements : 1661.0
+old.txt - system.cpu3.dcache.replacements : 1773.0
+old.txt - system.cpu4.dcache.replacements : 1689.0
+old.txt - system.cpu5.dcache.replacements : 1742.0
+old.txt - system.cpu6.dcache.replacements : 1734.0
+old.txt - system.cpu7.dcache.replacements : 1692.0
+old.txt - system.cpu8.dcache.replacements : 1716.0
+old.txt - system.cpu9.dcache.replacements : 1695.0
+old.txt - system.cpu10.dcache.replacements : 1782.0
+old.txt - system.cpu11.dcache.replacements : 1726.0
+old.txt - system.cpu12.dcache.replacements : 1700.0
+old.txt - system.cpu13.dcache.replacements : 1779.0
+old.txt - system.cpu14.dcache.replacements : 1773.0
+old.txt - system.cpu15.dcache.replacements: 1745.0
+
