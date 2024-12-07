@@ -1,35 +1,41 @@
 import os
 import subprocess
 
-
-
+# Path to the gem5 binary that contains all the built files for simulation
 gem5_binary = "gem5/build/X86/gem5.opt"
+
+# Path to the configuration script which imports required classes and accepts simulation arguments
 config_script = "gem5/configs/deprecated/example/se.py"
 
-# Define the list of workloads
+# Define the list of workloads to simulate
 workloads = [
-    "gem5/SPEC.Small/fft/fft",
+    # Uncomment and modify to run a different workload; note larger workloads like fft may take more time
+    #"gem5/SPEC.Small/fft/fft",
+    "gem5/SPEC.Small/mcf/mcf",
 ]
 
-work_options = [
+# Placeholder for additional workload options
+work_options = []
 
-    
-]
-
-# Construct the command with the workloads
-cmd = ";".join(workloads)  # Join the workloads with semicolons
+# Construct the command to run with the specified workloads
+cmd = ";".join(workloads)
 opt = ";".join(work_options)
 
-option = f'--options="{opt}"'
-num_cpus = "-n 1"
-cpu_type = "--cpu-type=O3CPU"
-l1d_size = "--l1d_size=32kB"
-l1i_size = "--l1i_size=32kB"
-l2_size = "--l2_size=512kB"
-mem_size = "--mem-size=512MB"
-l1d_assoc = "--l1d_assoc=2"
-l1i_assoc = "--l1i_assoc=2"
-l2_assoc = "--l2_assoc=8"
+# Specify simulation parameters
+general_options = f'--options="{opt}"'
+num_cpus = "-n 1"  # Number of CPUs to simulate
+cpu_type = "--cpu-type=O3CPU"  # CPU type configuration
+
+# Cache configuration
+l1d_size = "--l1d_size=32kB"  # L1 data cache size
+l1i_size = "--l1i_size=32kB"  # L1 instruction cache size
+l2_size = "--l2_size=512kB"  # L2 cache size
+mem_size = "--mem-size=512MB"  # Memory size
+l1d_assoc = "--l1d_assoc=2"  # L1 data cache associativity
+l1i_assoc = "--l1i_assoc=2"  # L1 instruction cache associativity
+l2_assoc = "--l2_assoc=8"  # L2 cache associativity
+
+# Enable caches and set cache replacement policies
 caches = "--caches"
 l2cache = "--l2cache"
 l1d_rp = "--l1d-rp-type=TreePLRURP"
@@ -39,16 +45,16 @@ l1i_wp = "--l1i-wb-clean=True"
 l1d_wp = "--l1d-wb-clean=False"
 l2_wp = "--l2-wb-clean=True"
 
-maxTick = "-m 500000000"
-warmup = "-W 100000"
+# Optional simulation parameters (uncomment to use)
+# maxTick = "-m 500000000"  # Maximum number of ticks for the simulation
+# warmup = "-W 100000"  # Warmup period for the simulation
 
-# Construct the full command
-command = [    
+# Construct the full command to run the simulation
+command = [
     gem5_binary,
     config_script,
     f'--cmd="{cmd}"',
-    # option,
-    option,
+    general_options,
     num_cpus,
     caches,
     l2cache,
@@ -66,9 +72,7 @@ command = [
     l1i_wp,
     l1d_wp,
     l2_wp
-    # warmup,
-    # maxTick,
 ]
 
-# Run the command
+# Execute the command
 subprocess.run(" ".join(command), shell=True)
